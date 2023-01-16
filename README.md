@@ -98,3 +98,7 @@
   - NAND RWFS分区使用方法
   - How to use IPv6 NAT and fullcone NAT
   - How to add new device support with device tree
+  - 默认登陆IP:192.168.2.1
+  - 默认用户名/密码:admin/admin
+  - 默认wifi密码:1234567890
+  - 集成/取消新增插件请修改此文件: trunk/build_firmware_modify
