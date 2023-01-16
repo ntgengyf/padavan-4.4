@@ -1,20 +1,20 @@
 # padavan-4.4 #
 
-This project is based on original rt-n56u with latest mtk 4.4.198 kernel, which is fetch from D-LINK GPL code.
+这个项目是基于原始的 rt-n56u 和最新的 mtk 4.4.198 内核，这是从 D-LINK GPL 代码中获取的。
 
-- Features
-  - Based on 4.4.198 Linux kernel
-  - Support MT7621 based devices
-  - Support MT7615D/MT7615N/MT7915D wireless chips
-  - Support raeth and mt7621 hwnat with legency driver
-  - Support qca shortcut-fe
-  - Support IPv6 NAT based on netfilter
-  - Support WireGuard integrated in kernel
-  - Support fullcone NAT (by Chion82)
-  - Support LED&GPIO control via sysfs
+- 特征
+  - 基于 4.4.198 Linux 内核
+  - 支持基于MT7621的设备
+  - 支持MT7615D/MT7615N/MT7915D无线芯片
+  - 支持 raeth 和 mt7621 hwnat with legency 驱动
+  - 支持 qca shortcut-fe 功能
+  - 支持基于netfilter的IPv6 NAT
+  - 支持集成在内核中的 WireGuard
+  - 支持 fullcone NAT (by Chion82)
+  - 支持通过sysfs控制LED&GPIO
 
 
-- Supported devices
+- 支持的设备
   - CR660x
   - JCG-Q20
   - JCG-AC860M
@@ -32,8 +32,8 @@ This project is based on original rt-n56u with latest mtk 4.4.198 kernel, which 
   - R2100
   - XY-C1
 
-- Compilation step
-  - Install dependencies
+- 编译步骤
+  - 安装依赖
     ```sh
     # Debian/Ubuntu
     sudo apt install unzip libtool-bin curl cmake gperf gawk flex bison nano xxd \
@@ -52,36 +52,36 @@ This project is based on original rt-n56u with latest mtk 4.4.198 kernel, which 
         automake gettext gettext-dev autoconf bison \
         flex coreutils cmake git libtool gawk sudo
     ```
-  - Clone source code
+  - 克隆源代码
     ```sh
-    git clone https://github.com/meisreallyba/padavan-4.4.git
+    git clone --depth=1 https://github.com/vb1980/Padavan-KVR.git /opt/rt-n56u
     ```
-  - Prepare toolchain
+  - 准备工具链
     ```sh
-    cd padavan-4.4/toolchain-mipsel
+    cd /opt/rt-n56u/toolchain-mipsel
 
-    # (Recommend) Download prebuilt toolchain for x86_64 or aarch64 host
+    # （推荐）为 x86_64 或 aarch64 主机下载预构建的工具链
     ./dl_toolchain.sh
 
-    # or build toolchain with crosstool-ng
+    # 或者使用 crosstool-ng 构建工具链
     # ./build_toolchain
     ```
-  - Modify template file and start compiling
+  - 修改模板文件并开始编译
     ```sh
-    cd padavan-4.4/trunk
+    cd /opt/rt-n56u/trunk
 
-    # (Optional) Modify template file
+    # （可选）修改模板文件
     # nano configs/templates/K2P.config
 
-    # Start compiling
+    # 开始编译
     fakeroot ./build_firmware_modify K2P
 
-    # To build firmware for other devices, clean the tree after previous build
+    # 要为其他设备构建固件，请在上一次构建后清理树
     ./clear_tree
     ```
 
-- Manuals
-  - Controlling GPIO and LEDs via sysfs
-  - How to use NAND RWFS partition
+- 说明
+  - 通过 sysfs 控制 GPIO 和 LED
+  - NAND RWFS分区使用方法
   - How to use IPv6 NAT and fullcone NAT
   - How to add new device support with device tree
