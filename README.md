@@ -52,6 +52,17 @@
         automake gettext gettext-dev autoconf bison \
         flex coreutils cmake git libtool gawk sudo
     ```
+  - 手动安装go
+    ```sh
+    wget https://go.dev/dl/go1.19.5.linux-amd64.tar.gz
+    tar -zxvf go1.19.5.linux-amd64.tar.gz -C /usr/local/
+    cp /etc/profile /etc/profile.bak
+    echo export GOROOT=/usr/local/go >> /etc/profile
+    echo export PATH=$GOROOT/bin:$PATH  >> /etc/profile
+    source /etc/profile
+    go version
+    ```
+    
   - 克隆源代码
     ```sh
     git clone --depth=1 https://github.com/vb1980/Padavan-KVR.git /opt/rt-n56u
